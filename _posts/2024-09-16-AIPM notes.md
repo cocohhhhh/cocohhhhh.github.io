@@ -7,9 +7,9 @@ tags: [ai, product management]     # TAG names should always be lowercase
 
 This is the notes for course [CS-500 AI Product Management (AIPM)](https://edu.epfl.ch/studyplan/en/master/computer-science/coursebook/ai-product-management-CS-500).
 
-# Week 1
+## Week 1
 In week 1 we mainly learned what is Product Management (PM) and what is AI Product Management (AIPM).
-## Class Notes
+### Class Notes
 - Attention is required for this course.
 - AI is a general-purpose technology.
 - Value and needs
@@ -20,7 +20,7 @@ Product -> Smart product -> Smart, connected product -> Product System -> System
     - Valuable
     - Feasible
     - Viable
-## Resources
+### Resources
 [The nature of product | Marty Cagan, Silicon Valley Product Group](https://www.youtube.com/watch?v=h-KVGHoQ_98&ab_channel=Lenny%27sPodcast)
 - What is a product manager
     - Product manager: Problem -> **Solution (Valuable and viable)**
@@ -31,6 +31,6 @@ Product -> Smart product -> Smart, connected product -> Product System -> System
 - User research
     - Find reasons why users won't use your product.
     - PM needs to be present at user research tests.
-## Case Galleries
+### Case Galleries
 - Stacksync
 - Amazon go
