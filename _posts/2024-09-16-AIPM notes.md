@@ -65,7 +65,7 @@ In week 2 we discussed some technical issues for AI start-ups, and pitched our p
     - Is this a scalable business?
     - Is this a good idea space? (Like Fintech, it has a good hit rate)
 - 3 things that make your startup idea good
-    - Hard to get started (Strip) 
+    - Hard to get started (Stripe) 
     - Boring space (Payroll idea has more hit rate than apps to find a good restaurant / song to listen to)
     - Existing competitors (Dropbox)
 - How to come up with startup ideas (organically > thinking of ideas)
