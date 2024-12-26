@@ -1170,7 +1170,7 @@ def describe_graph(G):
   print("Global clustering coefficient aka Transitivity: %.4f" %nx.transitivity(G))
 ```
 
-## Get attributes
+### Get attributes
 
 ```python
 # iterate over attributes
