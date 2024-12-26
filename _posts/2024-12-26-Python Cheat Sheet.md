@@ -5,13 +5,12 @@ categories: [Notes, Class Notes]
 tags: [python]     # TAG names should always be lowercase
 ---
 
-[TOC]
 
 This cheat sheet is adapted from the ADA course materials, with special thanks to Mehdi, [Jiaming](https://github.com/jiaming-jiang), [Yanzi](https://github.com/llooyee7) and [Davide](https://github.com/davromano) for their contributions.
 
-# Panda basics
+## Panda basics
 
-## Initialize a dataframe
+### Initialize a dataframe
 
 ```python
 data = pd.DataFrame({'value':[632, 1638, 569, 115, 433, 1130, 754, 555],
@@ -20,14 +19,14 @@ data = pd.DataFrame({'value':[632, 1638, 569, 115, 433, 1130, 754, 555],
   'Bacteroidetes', 'Firmicutes', 'Proteobacteria', 'Actinobacteria', 'Bacteroidetes']})
 ```
 
-## Rename the column names
+### Rename the column names
 
 ```python
 # Rename the 'old_name' column to 'new_name'
 df.rename(columns={'old_name': 'new_name'}, inplace=True)
 ```
 
-## Set indexes
+### Set indexes
 
 - Set one column as index
 
@@ -52,7 +51,7 @@ df.rename(columns={'old_name': 'new_name'}, inplace=True)
     # After resetting the index, DataFrame will have the default integer index
     ```
 
-## Reshape (Concat and join)
+### Reshape (Concat and join)
 
 - Concat (along the rows or cols)
 
@@ -92,7 +91,7 @@ df.rename(columns={'old_name': 'new_name'}, inplace=True)
 - **Left Join (Left Outer Join):** Returns all rows from the left dataframe and matching rows from the right dataframe.
 - **Right Join (Right Outer Join):** Returns all rows from the right dataframe and matching rows from the left dataframe.
 
-## Sort
+### Sort
 
 - Sort values
 
@@ -119,7 +118,7 @@ df.rename(columns={'old_name': 'new_name'}, inplace=True)
     df_sorted_index_desc = df.sort_index(ascending=False)
     ```
 
-## Find, Replace, Drop
+### Find, Replace, Drop
 
 - Loc
 
@@ -187,7 +186,7 @@ df.rename(columns={'old_name': 'new_name'}, inplace=True)
     df_no_duplicates = df.drop_duplicates()
     ```
 
-## Numerical features
+### Numerical features
 
 - Value counts
 
@@ -227,7 +226,7 @@ df.rename(columns={'old_name': 'new_name'}, inplace=True)
     df[['Column1', 'Column2']].cov()
     ```
 
-## Groupby
+### Groupby
 
 - Group and get the mean, count, median, etc
 
@@ -305,7 +304,7 @@ df.rename(columns={'old_name': 'new_name'}, inplace=True)
     1        B   45  22.500000   25
     ```
 
-## Math operations
+### Math operations
 
 ```python
 # for one col
@@ -318,9 +317,9 @@ df['Result'] = df['Column1'] + df['Column2']
 baseball['obp']=baseball.apply(lambda p: (p.h+p.bb+p.hbp)/(p.ab+p.bb+p.hbp+p.sf) if (p.ab+p.bb+p.hbp+p.sf) != 0.0 else 0.0, axis=1)
 ```
 
-# Visualization
+## Visualization
 
-## Basic charts
+### Basic charts
 
 - Use Case of different plots
 
@@ -533,7 +532,7 @@ baseball['obp']=baseball.apply(lambda p: (p.h+p.bb+p.hbp)/(p.ab+p.bb+p.hbp+p.sf)
     sns.pairplot(data)
     ```
 
-## Dimension reduction (TSNE/PCA)
+### Dimension reduction (TSNE/PCA)
 
 ```python
 from sklearn.manifold import TSNE
@@ -546,7 +545,7 @@ X_reduced_tsne = TSNE(n_components=2, init='random', learning_rate='auto', rando
 X_reduced_pca = PCA(n_components=2).fit(X10d).transform(X)
 ```
 
-## CDF and CCDF
+### CDF and CCDF
 
   The *Cumulative Distribution Function* (CDF) plot is a lin-lin plot with data overlay and confidence limits. It shows the cumulative density of any data set over time (i.e., Probability vs. size).
 
@@ -585,7 +584,7 @@ A bit more about the calculation of CDF and CCDF
       return [x[0] for x in var_count], cdf
   ```
 
-## PDF (probability density function)
+### PDF (probability density function)
 
   The term *Probability* is used in this instance to describe the size of the total population that will fail (failure data or any other data) by size.
 
@@ -600,7 +599,7 @@ sns.histplot(df[df["throws"] == "L"].salary, kde=True, stat="density", label="Le
 plt.xlabel
 ```
 
-## Layout
+### Layout
 
 ```python
 # Creating Multiple Subplots
@@ -618,9 +617,9 @@ plt.tight_layout()
 plt.show()
 ```
 
-# Simple statistics
+## Simple statistics
 
-## Sample data
+### Sample data
 
 ```python
 #make 10 samples with replacement
@@ -643,7 +642,7 @@ sample_size = int(len(df) * (percentage / 100))
 sampled_df = df.sample(n=sample_size, replace=False)
 ```
 
-## Distribution test
+### Distribution test
 
 ```python
 from statsmodels.stats import diagnostic
@@ -661,7 +660,7 @@ diagnostic.kstest_normal(df['IncomePerCap'].values, dist = 'exp')
 #p_value < 0.05 -> not exponential distribution!
 ```
 
-## 95% CI of the mean
+### 95% CI of the mean
 
 - Calculate and point plot
 
@@ -707,7 +706,7 @@ diagnostic.kstest_normal(df['IncomePerCap'].values, dist = 'exp')
     plt.legend()
     ```
 
-## T-test (of two means)
+### T-test (of two means)
 
 ```python
 # t-test for the null hypothesis that the two independent samples have identical means
@@ -720,7 +719,7 @@ display(scipy.stats.ttest_ind(x1, x2))
 #p_value < 0.05 : we reject null hypothesis
 ```
 
-## Correlation test
+### Correlation test
 
 ```python
 # pearson's correlation : amount of linear dependence
@@ -734,9 +733,9 @@ stats.spearmanr(df['IncomePerCap'],df['Employed'])
 # p_value < 0.05, significant correlation
 ```
 
-# Machine learning
+## Machine learning
 
-## Pre-processing
+### Pre-processing
 
 - Train test split
 
@@ -762,9 +761,9 @@ stats.spearmanr(df['IncomePerCap'],df['Employed'])
     (df["gender"] == "F").astype("int").values
     ```
 
-## Machine learns
+### Machine learns
 
-### Regression
+#### Regression
 
 - logistic regression using smf
   
@@ -792,7 +791,7 @@ stats.spearmanr(df['IncomePerCap'],df['Employed'])
     print(res.summary())
     ```
 
-### Clustering
+#### Clustering
 
 - K-Means for multiple values of K
   
@@ -903,7 +902,7 @@ stats.spearmanr(df['IncomePerCap'],df['Employed'])
         plt.tight_layout()
         ```
 
-## Finetune parameters (Grid search)
+### Finetune parameters (Grid search)
 
 ```python
 # 2. Import libraries and modules
@@ -962,7 +961,7 @@ joblib.dump(clf, 'rf_regressor.pkl')
 # To load: clf2 = joblib.load('rf_regressor.pkl')
 ```
 
-## Evaluation
+### Evaluation
 
 - ROC
 
@@ -989,7 +988,7 @@ joblib.dump(clf, 'rf_regressor.pkl')
     plt.show()
     ```
 
-# Text Data
+## Text Data
 
 - Remove special characters like \n and \t
 
@@ -1116,11 +1115,11 @@ joblib.dump(clf, 'rf_regressor.pkl')
           sent_to_cluster.append(cluster[0])
     ```
 
-# Network analysis
+## Network analysis
 
 ![Capture.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/b1ee38ce-c971-4862-8049-ee7bd9b696ca/45f9341a-ada9-48c6-ae5c-393d3d591a3e/Capture.png)
 
-## Generate the network
+### Generate the network
 
 ```python
 import networkx as nx
@@ -1142,7 +1141,7 @@ G = nx.from_pandas_edgelist(pd.read_csv("./to_push_as_is/wiki-RfA.csv.gz"),
                           'SRC', 'TGT', ['VOT', 'RES', 'YEA', 'DAT'], create_using=nx.Graph)
 ```
 
-## Describe the network
+### Describe the network
 
 ```python
 # Basic information about the network
@@ -1201,7 +1200,7 @@ edges_2004 = [i for i, v in nx.get_edge_attributes(G, "YEA").items() if v == 200
       G_2004 = G.subgraph(nodes_2004)
       ```
 
-## Visualize the network
+### Visualize the network
 
 - Network itself
 
@@ -1266,9 +1265,9 @@ edges_2004 = [i for i, v in nx.get_edge_attributes(G, "YEA").items() if v == 200
     print(f"Average Clustering Coefficient: {clustering_coefficient}")
     ```
 
-# Regex (Regular Expressions)
+## Regex (Regular Expressions)
 
-## Simply use pandas to match strings
+### Simply use pandas to match strings
 
     ```python
     # find a pattern
@@ -1292,7 +1291,7 @@ edges_2004 = [i for i, v in nx.get_edge_attributes(G, "YEA").items() if v == 200
     df['Column'].str.contains(r'^(?!exclude_pattern).*$')
     ```
 
-## Re
+### Re
 
 ```python
 import re
