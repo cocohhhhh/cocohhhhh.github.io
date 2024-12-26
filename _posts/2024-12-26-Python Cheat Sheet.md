@@ -1117,8 +1117,6 @@ joblib.dump(clf, 'rf_regressor.pkl')
 
 ## Network analysis
 
-![Capture.PNG](https://prod-files-secure.s3.us-west-2.amazonaws.com/b1ee38ce-c971-4862-8049-ee7bd9b696ca/45f9341a-ada9-48c6-ae5c-393d3d591a3e/Capture.png)
-
 ### Generate the network
 
 ```python
