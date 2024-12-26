@@ -1116,7 +1116,7 @@ joblib.dump(clf, 'rf_regressor.pkl')
     ```
 ### Regex (Regular Expressions)
 
-#### Simply use pandas to match strings
+- Simply use pandas to match strings
 
     ```python
     # find a pattern
@@ -1140,7 +1140,7 @@ joblib.dump(clf, 'rf_regressor.pkl')
     df['Column'].str.contains(r'^(?!exclude_pattern).*$')
     ```
 
-#### Re
+- Re
 
 ```python
 import re
