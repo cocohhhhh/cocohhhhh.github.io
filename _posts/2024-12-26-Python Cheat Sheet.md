@@ -6,7 +6,7 @@ tags: [python]     # TAG names should always be lowercase
 ---
 
 
-This cheat sheet is adapted from the ADA course materials, with special thanks to Mehdi, [Jiaming](https://github.com/jiaming-jiang), [Yanzi](https://github.com/llooyee7) and [Davide](https://github.com/davromano) for their contributions.
+This cheat sheet is adapted from the ADA course materials, with special thanks to [Mehdi](https://github.com/medimed66), [Jiaming](https://github.com/jiaming-jiang), [Yanzi](https://github.com/llooyee7) and [Davide](https://github.com/davromano) for their contributions.
 
 ## Panda basics
 
