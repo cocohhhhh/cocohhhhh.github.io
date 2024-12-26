@@ -1,4 +1,9 @@
-**Python Cheat sheet**
+---
+title: Python Cheat sheet
+date: 2024-12-26
+categories: [Notes, Class Notes]
+tags: [python]     # TAG names should always be lowercase
+---
 
 [TOC]
 
