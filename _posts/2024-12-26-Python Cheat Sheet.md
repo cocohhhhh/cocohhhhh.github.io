@@ -1114,6 +1114,53 @@ joblib.dump(clf, 'rf_regressor.pkl')
           cluster = max(model[doc],key=lambda x:x[1])
           sent_to_cluster.append(cluster[0])
     ```
+### Regex (Regular Expressions)
+
+#### Simply use pandas to match strings
+
+    ```python
+    # find a pattern
+    df['Column'].str.contains('pattern')
+    # Start of a String
+    df['Column'].str.startswith('start_pattern')
+    # end of a string
+    df['Column'].str.endswith('end_pattern')
+    # match with any character (except a new line)
+    df['Column'].str.contains('a.b')
+    # match a set. [abc]: Matches any single character 'a', 'b', or 'c'.
+    df['Column'].str.contains('[aeiou]')
+    # match a range. [0-9]: Matches any digit from 0 to 9.
+    df['Column'].str.contains('[0-9]')
+    # multiple chars
+    df['Column'].str.contains('a{2}')  # Matches 'aa'
+    df['Column'].str.contains('a{2,4}')  # Matches 'aa', 'aaa', or 'aaaa'
+    # match a word boundary
+    df['Column'].str.contains(r'\\bword\\b')
+    # exluding this pattern
+    df['Column'].str.contains(r'^(?!exclude_pattern).*$')
+    ```
+
+#### Re
+
+```python
+import re
+
+def extract_matched_strings(text):
+  pattern = r'\\d+'  # Example: Match one or more digits
+  matches = re.findall(pattern, text)
+  return ', '.join(matches) if matches else None
+
+data = {'Column1': ['abc123', 'def456', 'xyz789']}
+df = pd.DataFrame(data)
+
+df['Matched'] = df['Column1'].apply(extract_matched_strings)
+```
+
+- Regex examples
+
+  Search and test here:
+
+  [regex101: build, test, and debug regex](https://regex101.com/)
 
 ## Network analysis
 
@@ -1262,51 +1309,3 @@ edges_2004 = [i for i, v in nx.get_edge_attributes(G, "YEA").items() if v == 200
     clustering_coefficient = nx.average_clustering(G)
     print(f"Average Clustering Coefficient: {clustering_coefficient}")
     ```
-
-## Regex (Regular Expressions)
-
-### Simply use pandas to match strings
-
-    ```python
-    # find a pattern
-    df['Column'].str.contains('pattern')
-    # Start of a String
-    df['Column'].str.startswith('start_pattern')
-    # end of a string
-    df['Column'].str.endswith('end_pattern')
-    # match with any character (except a new line)
-    df['Column'].str.contains('a.b')
-    # match a set. [abc]: Matches any single character 'a', 'b', or 'c'.
-    df['Column'].str.contains('[aeiou]')
-    # match a range. [0-9]: Matches any digit from 0 to 9.
-    df['Column'].str.contains('[0-9]')
-    # multiple chars
-    df['Column'].str.contains('a{2}')  # Matches 'aa'
-    df['Column'].str.contains('a{2,4}')  # Matches 'aa', 'aaa', or 'aaaa'
-    # match a word boundary
-    df['Column'].str.contains(r'\\bword\\b')
-    # exluding this pattern
-    df['Column'].str.contains(r'^(?!exclude_pattern).*$')
-    ```
-
-### Re
-
-```python
-import re
-
-def extract_matched_strings(text):
-  pattern = r'\\d+'  # Example: Match one or more digits
-  matches = re.findall(pattern, text)
-  return ', '.join(matches) if matches else None
-
-data = {'Column1': ['abc123', 'def456', 'xyz789']}
-df = pd.DataFrame(data)
-
-df['Matched'] = df['Column1'].apply(extract_matched_strings)
-```
-
-- Regex examples
-
-  Search and test here:
-
-  [regex101: build, test, and debug regex](https://regex101.com/)
