@@ -1160,7 +1160,8 @@ df['Matched'] = df['Column1'].apply(extract_matched_strings)
 
   Search and test here:
 
-  [regex101: build, test, and debug regex](https://regex101.com/)
+  [regex101: build, test, and debug regex](https://regex101.com/)  
+  [pyrexp: test, and visualize regex](https://pythonium.net/regex)  
 
 ## Network analysis
 
